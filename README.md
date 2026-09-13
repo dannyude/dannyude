@@ -18,17 +18,21 @@ Async Python · FastAPI · PostgreSQL · Redis · Celery
 
 ---
 
-I write FastAPI backends built for production, not for a screenshot — multi-tenant,
-migration-managed, test-covered, shipped behind CI. My largest system carries **248 passing
-tests** against a pipeline that stands up live Postgres and Redis on every push.
+**4+ years building and shipping APIs in Python and FastAPI** — crash-ingestion pipelines for a
+live game, multi-tenant SaaS, real-time clinical systems, distributed job processing. Built for
+production, not for a screenshot: migration-managed, test-covered, shipped behind CI. My largest
+system carries **248 passing tests** against a pipeline that stands up live Postgres and Redis on
+every push.
 
-I also **teach this stack**: I run a backend engineering bootcamp cohort, write the curriculum,
-and review student code. It's why I can defend every decision in these repos.
+I came to engineering from a law degree, retrained, and now **teach this stack to cohorts of 40
+developers**. That route is also why picking up something unfamiliar fast is the normal case for
+me — most recently a Web3 backend, shipped in a 48-hour hackathon, having never written one.
 
 ### What I've built
 
 | | |
 |:--|:--|
+| **[Intentra](https://github.com/Soar-On-Technologies-Global-Concept-Ltd/ETHOnline-Startup/tree/main/intentra-monorepo)** | *ETHOnline 2026.* I owned the backend — a FastAPI modular monolith orchestrating EIP-712 mandates, a Solidity USDC escrow on Arc, and on-chain evidence. Money states commit on chain events only; a single state machine owns transaction state, enforced by an AST scan in the tests. `20 test suites · 48 hours · first Web3 project` |
 | **[PatStat](https://github.com/dannyude/Pat-Stat)** | Hospital-grade real-time patient status platform. Tenant isolation enforced on every access path, RBAC, WebSocket updates, Firebase push. `248 tests · 12 migrations · CI` |
 | **[DocFlow API](https://github.com/dannyude/DockFlow_API)** | Multi-tenant SaaS for LLM document extraction. Schema-driven map-reduce pipeline with reliability layers, Redis Bloom dedup, webhook callbacks. |
 | **[MediReminder API](https://github.com/dannyude/medication-reminder-api)** | Async medication-adherence API. JWT rotation, session management, Redis rate limiting, Google OAuth. |
@@ -45,6 +49,7 @@ and review student code. It's why I can defend every decision in these repos.
 
 `Python` `FastAPI` `Flask` `SQLAlchemy 2.0` `Pydantic v2` `PostgreSQL` `Redis` `Celery`
 `Docker` `Alembic` `GitHub Actions` `S3 / MinIO` `Pytest` `JWT / OAuth2` `RBAC` `WebSockets`
+`Event-driven design` `EIP-712` `Solidity ABI / on-chain events`
 
 ---
 

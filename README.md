@@ -2,7 +2,7 @@
 
 # Daniel Ude
 
-### Backend engineer — I build the systems that stay up when it matters.
+### Backend engineer — Python, FastAPI, PostgreSQL, built test-first.
 
 Async Python · FastAPI · PostgreSQL · Redis · Celery
 
@@ -18,38 +18,38 @@ Async Python · FastAPI · PostgreSQL · Redis · Celery
 
 ---
 
-**4+ years building and shipping APIs in Python and FastAPI** — crash-ingestion pipelines for a
-live game, multi-tenant SaaS, real-time clinical systems, distributed job processing. Built for
-production, not for a screenshot: migration-managed, test-covered, shipped behind CI. My largest
-system carries **248 passing tests** against a pipeline that stands up live Postgres and Redis on
-every push.
+**4+ years building APIs in Python and FastAPI**: a crash-detection pipeline for a game with 4,000+
+installations, multi-tenant clinical and document-processing backends, and APIs for 15 freelance clients.
+I write the tests first and set up the CI that runs them. My largest system carries **248 passing tests**,
+run by GitHub Actions against PostgreSQL 16 and Redis 7 service containers.
 
-I came to engineering from a law degree, retrained, and now **teach this stack to cohorts of 40
-developers**. That route is also why picking up something unfamiliar fast is the normal case for
-me — most recently a Web3 backend, shipped in a 48-hour hackathon, having never written one.
+I came to engineering from a law degree, retrained, and in 2026 **led a backend cohort of 40 developers**,
+writing the curriculum and reviewing their code. I'm also writing a book on test-driven backend development
+with Claude Code.
 
 ### What I've built
 
 | | |
 |:--|:--|
-| **[Intentra](https://github.com/Soar-On-Technologies-Global-Concept-Ltd/ETHOnline-Startup/tree/main/intentra-monorepo)** | *ETHOnline 2026.* I owned the backend — a FastAPI modular monolith orchestrating EIP-712 mandates, a Solidity USDC escrow on Arc, and on-chain evidence. Money states commit on chain events only; a single state machine owns transaction state, enforced by an AST scan in the tests. `20 test suites · 48 hours · first Web3 project` |
-| **[PatStat](https://github.com/dannyude/Pat-Stat)** | Hospital-grade real-time patient status platform. Tenant isolation enforced on every access path, RBAC, WebSocket updates, Firebase push. `248 tests · 12 migrations · CI` |
-| **[DocFlow API](https://github.com/dannyude/DockFlow_API)** | Multi-tenant SaaS for LLM document extraction. Schema-driven map-reduce pipeline with reliability layers, Redis Bloom dedup, webhook callbacks. |
-| **[MediReminder API](https://github.com/dannyude/medication-reminder-api)** | Async medication-adherence API. JWT rotation, session management, Redis rate limiting, Google OAuth. |
-| **[ICBM Bootcamp](https://github.com/dannyude/ICBM-Technical-Bootcamp-Cohort-Two)** | The backend curriculum I teach — Python fundamentals through a full FastAPI REST API, with worked solutions. |
+| **[Puente](https://github.com/dannyude/pollar-app)** | *Fintech hackathon project.* Naira ↔ USDC agent escrow on Stellar. I wrote the backend and wired a teammate's Next.js UI to it by directing AI coding subagents test-first; idempotent order creation. `64 tests · live demo` |
+| **[PatStat](https://github.com/dannyude/Pat-Stat)** | Multi-tenant patient status platform. Tenant-scoped routes with cross-hospital refusal tests, role-based access, real-time updates over authenticated WebSockets, Firebase push via Celery. `248 tests · 12 migrations · CI` |
+| **[Intentra](https://github.com/Soar-On-Technologies-Global-Concept-Ltd/ETHOnline-Startup/tree/main/intentra-monorepo)** | *ETHOnline 2026, four-person team.* I wrote the FastAPI backend: a transaction state machine with a transition table, row locks and an audit log; EIP-712 signature checks; idempotency keys. `150 tests · first Web3 project` |
+| **[DocFlow API](https://github.com/dannyude/DockFlow_API)** | LLM document extraction: documents are split, extracted concurrently and merged into schema-driven JSON on Celery workers; Redis circuit breaker, Bloom-filter dedup, webhook callbacks. |
+| **[MediReminder API](https://github.com/dannyude/medication-reminder-api)** | Refresh-token rotation with reuse detection, Redis rate limiting, Google OAuth; Firebase push with SMS fallback. `73 tests` |
+| **[System design guide](https://github.com/dannyude/system-design-fundamentals)** | Free, 71 pages, 30 diagrams, CC BY 4.0: one app grown from a single server, adding each component when it's needed. |
+| **[ICBM Bootcamp](https://github.com/dannyude/ICBM-Technical-Bootcamp-Cohort-Two)** | The backend curriculum I wrote for my cohort: Python fundamentals through a full FastAPI REST API, with worked solutions. |
 
 ### How I work
 
-- **Architecture** — per-feature modules; multi-tenancy and authorization enforced once, at the dependency layer
-- **Data** — async SQLAlchemy 2.0 on PostgreSQL, every schema change through Alembic, no `create_all()` in anything that matters
-- **Reliability** — Celery for anything slow, Redis for caching and rate limits, retry-and-fallback around third-party calls
-- **Proof** — pytest suites covering failure paths, not just the happy one; CI on push and PR
+- **Tests first**: pytest suites that cover failure paths, validation errors and cross-tenant access, not just the happy path
+- **Data**: async SQLAlchemy 2.0 on PostgreSQL, schema changes through Alembic migrations
+- **Reliability**: Celery for slow work; Redis for rate limits, circuit breakers and deduplication; retries with backoff around third-party calls
+- **CI**: GitHub Actions running the suite against real PostgreSQL and Redis
 
 ### Stack
 
-`Python` `FastAPI` `Flask` `SQLAlchemy 2.0` `Pydantic v2` `PostgreSQL` `Redis` `Celery`
-`Docker` `Alembic` `GitHub Actions` `S3 / MinIO` `Pytest` `JWT / OAuth2` `RBAC` `WebSockets`
-`Event-driven design` `EIP-712` `Solidity ABI / on-chain events`
+`Python` `FastAPI` `Flask` `SQLAlchemy 2.0` `Pydantic` `PostgreSQL` `Redis` `Celery`
+`Docker` `Alembic` `GitHub Actions` `MinIO` `Pytest` `JWT / OAuth2` `WebSockets` `Sentry` `Claude Code`
 
 ---
 
